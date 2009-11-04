@@ -1,0 +1,29 @@
+<h1>My test products</h1>
+
+<table style="width: 100%;" border="0">
+  <tr style="background-color: #9c9c9c;">
+    <th>Id</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Img url</th>
+    <th>Price</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+<% for product in @products %>
+  <tr valign="top" style="background-color:#cccccc;" >
+    <td><%=h product.id %></td>
+    <td><%=h product.title %></td>
+    <td><%=h product.description %></td>
+    <td><%=h product.img_url %></td>
+    <td><%=h product.price %></td>
+    <td align="center"><%= link_to 'Show',:controller => :product, product %></td>
+    <td align="center"><%= link_to 'Edit',:controller => :product, :action => :edit, :id =>product %></td>
+    <td align="center"><%= link_to 'Destroy',:controller => :product, product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New product', new_product_path %><br /><%= link_to 'Advanced view', :controller => :adview, :action => :index  %>
