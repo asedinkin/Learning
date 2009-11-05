@@ -1,6 +1,14 @@
 <h1>My test products</h1>
 
 <table style="width: 100%;" border="0">
+<colgroup>
+  <col width="40" />
+  <col width="300" />
+  <col width="300" />
+  <col width="60" />
+  <col width="60" />
+  <col />
+</colgroup>
   <tr style="background-color: #9c9c9c;">
     <th>Id</th>
     <th>Title</th>
@@ -11,15 +19,16 @@
   </tr>
 
 <% for product in @products %>
-  <tr valign="top" style="background-color:#cccccc;" >
-    <td><%=h product.id %></td>
-    <td><%=h product.title %></td>
-    <td><%=h product.description %></td>
-    <td><%=h product.img_url %></td>
-    <td><%=h product.price %></td>
-    <td align="center"><%= link_to 'Show',:controller => :product, product %></td>
-    <td align="center"><%= link_to 'Edit',:controller => :product, :action => :edit, :id =>product %></td>
-    <td align="center"><%= link_to 'Destroy',:controller => :product, product, :confirm => 'Are you sure?', :method => :delete %></td>
+<% @product = product %>
+  <tr  class="data" valign="top" style="background-color:#cccccc; height: 25px;" >
+    <td><%=product.id %></td>
+    <td><%= in_place_editor_field :product, :title %></td>
+    <td><%= in_place_editor_field :product, :description %></td>
+    <td><%= in_place_editor_field :product, :img_url %></td>
+    <td><%=product.price %></td>
+    <td align="center"><%= link_to 'Show', product %></td>
+    <td align="center"><%= link_to 'Edit', :action => :edit, :id =>product %></td>
+    <td align="center"><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
