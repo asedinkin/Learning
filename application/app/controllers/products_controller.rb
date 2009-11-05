@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
   in_place_edit_for :Product, :description
   in_place_loader_for :Product, :description
   
+  
+  
   #Setting titles
   #def set_product_title
     #product = Product.find(params[:id])
@@ -31,7 +33,7 @@ class ProductsController < ApplicationController
     #product.description = params[:value]
     #product.save
     #render :text => product.description
- # end
+  #end
  
   def index
     @products = Product.find(:all)
